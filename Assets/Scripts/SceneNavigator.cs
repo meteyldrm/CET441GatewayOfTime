@@ -1,3 +1,4 @@
+using UI;
 using UI.Choice;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -6,11 +7,14 @@ using UnityEngine.UIElements;
 public class SceneNavigator : MonoBehaviour
 {
     public GameObject background;
-    public GameObject ChoiceMenu;
+    public GameObject choiceMenu;
+    public AlertController alertController;
 
     public Sprite scene1Background;
 
     public string activity;
+
+    public int gravityCounter;
     public enum Scenes
     {
         Scene1,
@@ -19,7 +23,7 @@ public class SceneNavigator : MonoBehaviour
         Scene4
     }
 
-    #region Scene Swap
+    #region Scene Swap Logic
 
     void SwapBackground(Scenes scene)
     {
@@ -48,12 +52,12 @@ public class SceneNavigator : MonoBehaviour
         Vector2 right1 = new Vector2(0.7f, 0);
         Vector2 right2 = new Vector2(1, 1);
 
-        ChoiceMenu.SetActive(true);
+        choiceMenu.SetActive(true);
         
-        ChoiceController controller = ChoiceMenu.GetComponent<ChoiceController>();
+        ChoiceController controller = choiceMenu.GetComponent<ChoiceController>();
         controller.DestroyChoices();
         
-        RectTransform rt = ChoiceMenu.GetComponent<RectTransform>();
+        RectTransform rt = choiceMenu.GetComponent<RectTransform>();
         
         if (!showOnRight)
         {
@@ -69,7 +73,7 @@ public class SceneNavigator : MonoBehaviour
 
     public void HideChoiceMenu()
     {
-        ChoiceMenu.SetActive(false);
+        choiceMenu.SetActive(false);
     }
 
     #endregion
