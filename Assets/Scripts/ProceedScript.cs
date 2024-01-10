@@ -31,5 +31,11 @@ public class ProceedScript : MonoBehaviour
             go2_12.SetActive(true);
             quiz2button.SetActive(true);
         }
+        
+        if (go3_11.gameObject.activeSelf)
+        {
+            go3_12.SetActive(true);
+            quiz3button.SetActive(true);
+        }
     }
 }
